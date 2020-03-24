@@ -1,0 +1,133 @@
+.header {
+  display: grid;
+  grid-template-columns: minmax(min-content, 5vw) 1fr min-content min-content;
+  grid-column-gap: 3rem;
+  opacity: 0;
+  animation: opacity 0.3s 1 forwards 0.05s;
+  padding: 0 3rem;
+  height: 240px;
+  transition: all 0.5s;
+
+  &__img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    position: relative;
+    animation: showProfile 0.5s ease-out forwards;
+    translate: all 0.3s 0.5s;
+    border-radius: 15px;
+  }
+
+  .arrowBack {
+    fill: #fff;
+    background-color: #353642;
+    border-radius: 100px;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    width: 35px;
+    height: 35px;
+
+    &:hover {
+      background-color: #424351;
+    }
+  }
+
+  .artistInfo {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-column-gap: 4rem;
+    padding-left: 0.5rem;
+
+    &__name {
+      font-size: 3.2rem;
+    }
+
+    &__music {
+      font-size: 1.8rem;
+      color: #b2b3c1;
+    }
+  }
+
+  .shuffle {
+    fill: #fff;
+    background-color: #353642;
+    border-radius: 100px;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    width: 35px;
+    height: 35px;
+
+    &:hover {
+      background-color: #424351;
+    }
+  }
+}
+
+// ------------------------------
+// animations
+// ------------------------------
+@keyframes opacity {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showProfile {
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+
+// ------------------------------
+// media
+// ------------------------------
+
+// 850px = 53.125rem
+@media (max-width: 53rem) {
+  .header {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: minmax(min-content, 5vw) 1fr min-content min-content;
+    grid-row-gap: 2rem;
+    padding-right: 0rem;
+    padding-left: 0.5rem;
+
+    .arrowBack {
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+    }
+
+    .artistInfo {
+      grid-row: 2 / 3;
+      grid-column: 1 / -1;
+    }
+
+    .shuffle {
+      justify-self: end;
+    }
+  }
+}
+
+// 530px
+@media (max-width: 33.125rem) {
+  .header {
+    .artistInfo {
+      @media (max-width: 33.125rem) {
+        grid-template-columns: max-content;
+        grid-template-rows: min-content min-content;
+        grid-row-gap: 1rem;
+
+        .artistInfo__box {
+          grid-row: 1;
+          grid-column: 1 / 2;
+        }
+
+        & img {
+          grid-row: 2 / 3;
+          grid-column: 1 / 2;
+        }
+      }
+    }
+  }
+}

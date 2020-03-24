@@ -1,0 +1,63 @@
+.popular {
+  grid-column: 1 / 2;
+  grid-row: 2 / -1;
+
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-row-gap: 2rem;
+  animation: easeup 0.5s var(--easing-smooth) forwards 0.2s;
+  transform: translateY(40%);
+  opacity: 0;
+
+  &__tracks {
+    display: grid;
+    grid-row-gap: 2rem;
+  }
+
+  &__track {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+  }
+
+  &__title {
+    color: #333333;
+    font-size: 2.4rem;
+  }
+
+  &__trackInfo {
+    display: grid;
+    align-items: center;
+    grid-template-columns: min-content max-content;
+    grid-template-rows: min-content min-content;
+    grid-gap: 1rem;
+  }
+
+  &__img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    grid-row: 1 / -1;
+    grid-column: 1 / 2;
+  }
+
+  &__name {
+    color: #333333;
+    font-size: 1.4rem;
+  }
+
+  &__album,
+  &__duration {
+    color: #999999;
+    font-size: 1.2rem;
+  }
+}
+
+// ------------------------------
+// animations
+// ------------------------------
+@keyframes easeup {
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

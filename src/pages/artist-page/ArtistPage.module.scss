@@ -1,0 +1,170 @@
+:root {
+  --width-col-mb: 250px;
+}
+
+.artists {
+  padding-top: 5rem;
+  height: calc(100vh - var(--player-height));
+  color: #fff;
+  padding-left: 3rem;
+
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-row-gap: 2rem;
+  overflow-y: auto;
+
+  &__title {
+    color: var(--red);
+    font-size: 1.8rem;
+  }
+
+  .titleSection {
+    font-size: 2.4rem;
+    font-weight: 700;
+  }
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 190px);
+    grid-gap: 1.3rem;
+    justify-content: center;
+  }
+
+  .trending,
+  .popular {
+    display: grid;
+    grid-row-gap: 3rem;
+
+    @media (max-width: 31.25rem) {
+      .titleSection {
+        padding-left: 2rem;
+      }
+    }
+  }
+
+  // 500px
+  @media (max-width: 31.25rem) {
+    padding-left: 0rem;
+
+    &__title {
+      padding-left: 2rem;
+    }
+  }
+}
+
+.artist {
+  border-radius: 15px;
+  display: grid;
+  grid-row-gap: 1rem;
+  padding-bottom: 1rem;
+  cursor: pointer;
+  z-index: 0;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.7);
+  animation: show 0.3s linear forwards;
+
+  &__img {
+    width: 190px;
+    height: 190px;
+    border-radius: 15px;
+    display: block;
+    object-fit: cover;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  &__info {
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 0.5rem;
+    letter-spacing: 0.1rem;
+    font-size: 1.1rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 15px;
+    transition: all 0.1s;
+    z-index: -2;
+  }
+
+  &:hover::before {
+    transform: scale(1.15);
+  }
+}
+
+.rihanna,
+.jazzyb {
+  background-color: #48494b;
+
+  &::before {
+    background-color: #48494b;
+  }
+}
+
+.sukh,
+.guru {
+  background-color: #727ba5;
+
+  &::before {
+    background-color: #727ba5;
+  }
+}
+
+.jassmanak {
+  background-color: #849cb0;
+
+  &::before {
+    background-color: #849cb0;
+  }
+}
+
+.bohemia {
+  background-color: #9d9ea6;
+
+  &::before {
+    background-color: #9d9ea6;
+  }
+}
+
+// animations
+@keyframes show {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// media queries
+// 500px
+@media (max-width: 31.25rem) {
+  .artists {
+    .tiles {
+      grid-template-columns: var(--width-col-mb);
+      justify-content: start;
+      padding-left: 2rem;
+    }
+
+    .trending,
+    .popular {
+      .titleSection {
+        padding-left: 2rem;
+      }
+    }
+  }
+
+  .artist {
+    &__img {
+      width: var(--width-col-mb);
+      height: var(--width-col-mb);
+    }
+  }
+}

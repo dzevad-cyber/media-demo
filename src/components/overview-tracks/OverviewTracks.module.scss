@@ -1,0 +1,45 @@
+.content__tracks {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+  grid-column-gap: 2rem;
+  animation: tracks 0.3s linear forwards 0.1s;
+  overflow-x: scroll;
+  opacity: 0;
+  width: 100%;
+
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+}
+
+.content__track {
+  display: grid;
+  grid-row-gap: 1rem;
+}
+
+.content__img {
+  width: 160px;
+  height: 160px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.content__name {
+  color: #333333;
+  font-size: 1.4rem;
+}
+
+.content__duration {
+  color: #999999;
+  font-size: 1.2rem;
+}
+
+// ------------------------------
+// animations
+// ------------------------------
+@keyframes tracks {
+  to {
+    transform: translateY(-60px);
+    opacity: 1;
+  }
+}
